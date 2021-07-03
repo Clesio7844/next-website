@@ -7,6 +7,7 @@ import Performance from 'assets/feature/performance.svg';
 import Partnership from 'assets/feature/partnership.svg';
 import Subscription from 'assets/feature/subscription.svg';
 import Support from 'assets/feature/support.svg';
+import FeatureCardColumn from 'components/feature-card-column';
 
 const data = [
   {
@@ -15,7 +16,7 @@ const data = [
     altText: 'Fast Performance',
     title: 'Fast Performance',
     text:
-      'Let’s just get this out of the way - there will always be a kit version of Edu flow. Paid subscriptions allow us to continue helping learners around the world.',
+      'Let’s just get this out of the way - there will always be a kit version of Edu flow. Paid subscriptions allow us to continue helping learners around the world.'
   },
   {
     id: 2,
@@ -23,7 +24,7 @@ const data = [
     altText: 'Pro Subscription',
     title: 'Pro Subscription',
     text:
-      'We believe it’s important for everyone to have access to software – especially when it comes to digital learning be navigated by keyboard and screen readers.',
+      'We believe it’s important for everyone to have access to software – especially when it comes to digital learning be navigated by keyboard and screen readers.'
   },
   {
     id: 3,
@@ -31,7 +32,7 @@ const data = [
     altText: 'Partnership deal',
     title: 'Partnership deal',
     text:
-      'Let’s just get this out of the way - there will always be a kit version of Edu flow. Paid subscriptions allow us to continue helping learners around the world.',
+      'Let’s just get this out of the way - there will always be a kit version of Edu flow. Paid subscriptions allow us to continue helping learners around the world.'
   },
   {
     id: 4,
@@ -39,14 +40,12 @@ const data = [
     altText: 'Customer Support',
     title: 'Customer Support',
     text:
-      'We believe it’s important for everyone to have access to software – especially when it comes to digital learning be navigated by keyboard and screen readers.',
-  },
+      'We believe it’s important for everyone to have access to software – especially when it comes to digital learning be navigated by keyboard and screen readers.'
+  }
 ];
 
 export default function Feature() {
-  return (
-   <h1>Feature</h1>
-  );
+  return <h1>feature</h1>;
 }
 
 const styles = {
@@ -61,8 +60,8 @@ const styles = {
       '60px 50px',
       '70px 50px',
       null,
-      '80px 90px',
+      '80px 90px'
     ],
-    gridTemplateColumns: ['repeat(1,1fr)', null, 'repeat(2,1fr)'],
-  },
+    gridTemplateColumns: ['repeat(1,1fr)', null, 'repeat(2,1fr)']
+  }
 };
