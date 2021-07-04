@@ -1,10 +1,22 @@
 /** @jsx jsx */
 import { jsx, Box, Container, Flex } from 'theme-ui';
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from 'react-icons/io';
+import { Button } from '@theme-ui/components';
 
 export default function ButtonGroup({ next, previous }) {
   return (
-    <h1>ButtonGroup</h1>
+    <Flex sx={{ width: '100%' }}>
+      <Container>
+        <Box sx={styles.buttonGroup} className='button_group'>
+          <Button onClick={previous} aria-label='Previous'>
+            <IoIosArrowRoundBack />
+          </Button>
+          <Button onClick={next} aria-label='Next'>
+            <IoIosArrowRoundForward />
+          </Button>
+        </Box>
+      </Container>
+    </Flex>
   );
 }
 
@@ -22,11 +34,11 @@ const styles = {
       color: '#BBC7D7',
       transition: 'all 0.25s',
       '&:hover': {
-        color: 'text',
+        color: 'text'
       },
       '&:focus': {
-        outline: 0,
-      },
-    },
-  },
+        outline: 0
+      }
+    }
+  }
 };

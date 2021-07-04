@@ -7,6 +7,7 @@ import PriceCard from 'components/price-card';
 import ButtonGroup from 'components/button-group';
 import SectionHeader from 'components/section-header';
 import { IoIosCheckmarkCircle, IoIosCloseCircle } from 'react-icons/io';
+import { Button } from '@theme-ui/components';
 
 const packages = {
   monthly: [
@@ -21,27 +22,27 @@ const packages = {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
           text: 'Drag & Drop Builder',
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 2,
           icon: <IoIosCheckmarkCircle />,
           text: "1,000's of Templates",
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
           text: 'Blog Support Tools',
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 4,
           icon: <IoIosCloseCircle />,
           text: 'eCommerce Store ',
-          isAvailable: true,
-        },
-      ],
+          isAvailable: true
+        }
+      ]
     },
     {
       id: 2,
@@ -55,27 +56,27 @@ const packages = {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
           text: 'Drag & Drop Builder',
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 2,
           icon: <IoIosCheckmarkCircle />,
           text: "1,000's of Templates",
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
           text: 'Blog Support Tools',
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 4,
           icon: <IoIosCheckmarkCircle />,
           text: 'eCommerce Store ',
-          isAvailable: true,
-        },
-      ],
+          isAvailable: true
+        }
+      ]
     },
     {
       id: 3,
@@ -91,28 +92,28 @@ const packages = {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
           text: 'Drag & Drop Builder',
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 2,
           icon: <IoIosCheckmarkCircle />,
           text: "1,000's of Templates",
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
           text: 'Blog Support Tools',
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 4,
           icon: <IoIosCheckmarkCircle />,
           text: 'eCommerce Store ',
-          isAvailable: true,
-        },
-      ],
-    },
+          isAvailable: true
+        }
+      ]
+    }
   ],
   annual: [
     {
@@ -126,27 +127,27 @@ const packages = {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
           text: "1,000's of Templates",
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 2,
           icon: <IoIosCheckmarkCircle />,
           text: 'Drag & Drop Builder',
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
           text: 'Blog Support Tools',
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 4,
           icon: <IoIosCloseCircle />,
           text: 'eCommerce Store ',
-          isAvailable: true,
-        },
-      ],
+          isAvailable: true
+        }
+      ]
     },
     {
       id: 2,
@@ -160,27 +161,27 @@ const packages = {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
           text: 'eCommerce Store',
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 2,
           icon: <IoIosCheckmarkCircle />,
           text: 'Blog Support Tools',
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
           text: "1,000's of Templates",
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 4,
           icon: <IoIosCheckmarkCircle />,
           text: 'Drag & Drop Builder ',
-          isAvailable: true,
-        },
-      ],
+          isAvailable: true
+        }
+      ]
     },
     {
       id: 3,
@@ -196,51 +197,69 @@ const packages = {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
           text: 'eCommerce Store',
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 2,
           icon: <IoIosCheckmarkCircle />,
           text: 'Blog Support Tools',
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
           text: "1,000's of Templates",
-          isAvailable: true,
+          isAvailable: true
         },
         {
           id: 4,
           icon: <IoIosCheckmarkCircle />,
           text: 'Drag & Drop Builder ',
-          isAvailable: true,
-        },
-      ],
-    },
-  ],
+          isAvailable: true
+        }
+      ]
+    }
+  ]
 };
 
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 3,
-    draggable: false,
+    draggable: false
   },
   tablet: {
     breakpoint: { max: 1023, min: 640 },
     items: 2,
-    draggable: true,
+    draggable: true
   },
   mobile: {
     breakpoint: { max: 639, min: 0 },
     items: 1,
-    draggable: true,
-  },
+    draggable: true
+  }
 };
 
 export default function Package() {
   const { monthly, annual } = packages;
+  const [state, setState] = useState({
+    active: 'monthly',
+    pricingPlan: monthly
+  });
+
+  const handlePricingPlan = plan => {
+    if (plan === 'annual') {
+      setState({
+        active: 'annual',
+        pricingPlan: annual
+      });
+    } else {
+      setState({
+        active: 'monthly',
+        pricingPlan: monthly
+      });
+    }
+  };
 
   const sliderParams = {
     additionalTransfrom: 0,
@@ -262,11 +281,44 @@ export default function Package() {
     renderDotsOutside: false,
     responsive: responsive,
     showDots: false,
-    sliderClass: '',
+    sliderClass: ''
   };
 
   return (
-    <h1>Package</h1>
+    <section id='pricing' sx={{ variant: 'section.pricing' }}>
+      <Container>
+        <SectionHeader slogan='Pricing Plan' title='Choose your pricing plan' />
+        <Flex sx={styles.buttonGroup}>
+          <Box sx={styles.buttonGroupInner}>
+            <Button
+              className={state.active === 'monthly' ? 'active' : ''}
+              type='button'
+              aria-label='Monthly'
+              onClick={() => handlePricingPlan('monthly')}
+            >
+              Monthly Plan
+            </Button>
+            <Button
+              className={state.active === 'annual' ? 'active' : ''}
+              type='button'
+              aria-label='Annual'
+              onClick={() => handlePricingPlan('annual')}
+            >
+              Annual Plan
+            </Button>
+          </Box>
+        </Flex>
+        <Box sx={styles.pricingWrapper} className='pricing__wrapper'>
+          <Carousel {...sliderParams}>
+            {state.pricingPlan.map(packageDate => (
+              <Box sx={styles.pricingItem} key={packageDate.id}>
+                <PriceCard data={packageDate} />
+              </Box>
+            ))}
+          </Carousel>
+        </Box>
+      </Container>
+    </section>
   );
 }
 
@@ -298,41 +350,41 @@ const styles = {
     flexWrap: 'wrap',
     '&.pricing__wrapper .package__card': {
       '.package__header': {
-        animation: `${fadeIn} 0.8s ease-in`,
+        animation: `${fadeIn} 0.8s ease-in`
       },
       'ul > li': {
-        animation: `${fadeIn2} 0.7s ease-in`,
+        animation: `${fadeIn2} 0.7s ease-in`
       },
       '.package__price': {
-        animation: `${fadeIn2} 0.9s ease-in`,
+        animation: `${fadeIn2} 0.9s ease-in`
       },
       button: {
-        animation: `${fadeIn2} 1s ease-in`,
-      },
+        animation: `${fadeIn2} 1s ease-in`
+      }
     },
     '.carousel-container': {
       width: '100%',
       '> ul > li ': {
-        display: 'flex',
-      },
+        display: 'flex'
+      }
     },
     '.button__group': {
       display: ['flex', null, null, null, 'none'],
-      mb: [4, null, null, null, 0],
-    },
+      mb: [4, null, null, null, 0]
+    }
   },
   pricingItem: {
     mx: 3,
     display: 'flex',
     flexShrink: 0,
-    flex: '1 1 auto',
+    flex: '1 1 auto'
   },
   buttonGroup: {
     justifyContent: 'center',
     mb: '7',
     mt: ['-15px', '-35px'],
     position: 'relative',
-    zIndex: 2,
+    zIndex: 2
   },
   buttonGroupInner: {
     display: 'flex',
@@ -356,11 +408,11 @@ const styles = {
       '&.active': {
         color: '#0f2137',
         backgroundColor: '#ffffff',
-        boxShadow: '0 3px 4px rgba(38, 78, 118, 0.1)',
+        boxShadow: '0 3px 4px rgba(38, 78, 118, 0.1)'
       },
       '&:focus': {
-        outline: 0,
-      },
-    },
-  },
+        outline: 0
+      }
+    }
+  }
 };
